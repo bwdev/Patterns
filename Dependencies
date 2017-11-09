@@ -1,0 +1,30 @@
+{solutionName}.sln
+{solutionName}.Core => No Dependencies
+{solutionName}.BLL => Dependency On Core
+{solutionName}.Infrastructure => Depends On Core
+{solutionName}.Resolution => Depends On Core, BLL, Infrastructure, and anything else that is encapsulated in a new assembly (logging, reporting, etc)
+{solutionName}.Ioc => Depends On Resolution
+{solutionName}.Tests.Unit => Unit Tests
+{solutionName}.Tests.Integration => Integration Tests
+
+{solutionName}.{UI Project} => Depends on Core and Ioc
+
+
+* Core should be kept clean
+  - Data Transfer Objects
+  - Behaviors (interfaces)
+  
+* BLL is the Business Logic layer
+  - Provides for business logic to be applied to items coming from a provider
+  
+* Infrastructure is the lower layer
+  - Provides for functionality at a system level - such as interaction with a database or smtp server
+  
+* IoC is Inversion of Control
+  - Provides for a way to resolve dependencies in UI projects
+  
+* Resolution contains mappings (IoC Container)
+  - Provides for a way to define mappings for IoC
+  
+* UI Project
+  - This project could be a windows service, a web application, a console app, or anything that is at that higher level
