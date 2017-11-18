@@ -1,0 +1,12 @@
+Source control - Just some guidelines around the way I like to organize my commits
+* utilize branches to control code base
+  * {featureName}feature - used for developing features inside the code base
+  * development - used for the general development of the codebase
+  * staging - used for merging development code to a staging environment for testing, demo, etc purposes
+  * master - used for merging staging code to a production environment
+  
+* maintain rollback ability at the branch level instead of just the commit level
+  - when working on features, always keep them in their own branch
+  - any work done on development branch should be applied to feature branches using a rebase
+  - maintain the ability to do fast forward merges by doing active development only on feature and development branches. These branches can then be merged into staging and master respectively with fast-forward merges
+  
